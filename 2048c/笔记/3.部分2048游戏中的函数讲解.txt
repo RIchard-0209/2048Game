@@ -1,0 +1,36 @@
+FillARandNum
+	在二维数组中，所有其值为0的随机位置中，填充一个随机值(2 / 4 / 8)
+	
+	int zeroNum = GetZeroNum();
+	int pos = random() % zeroNum + 1;//取1~zeroNum的值，也即为，所要填充值的位置
+	int cnt = 0;
+	for(int i = 0;i < N ;i++)
+	{
+		for(int j = 0; j < N;j++)
+		{
+			if(matrix2048[i][j] == 0)
+			{
+				cnt++;
+				if(cnt == pos)
+				{
+					int tempArr[] = {2,2,4,8};
+					int index = random()%4;
+					matrix2048[i][j] = tempArr[index];
+					return ;
+				}
+			}
+		}
+	}
+
+
+
+DrawMatrix
+	将二维数组中的值，刷写到字符窗口中
+
+
+练习：
+	求一个二维数组中的0的个数
+	即：实现GetZeroN函数
+	
+	有精力的可以再写一下：
+		IsGameOver函数和IsChangeMatrix函数

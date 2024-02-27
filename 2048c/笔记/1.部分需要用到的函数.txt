@@ -1,0 +1,33 @@
+1.从键盘上获取输入，得到其ascii码值
+	int wgetchar(WINDOW* win)
+	参数列表：
+		WINDOW* win
+			需要获取到输入的字符窗口的指针，该指针由第二天早上的《窗口创建函数接口》中的newwin返回
+	返回值：
+		返回ascii码值
+		
+		
+2.将格式化的语句转换为字符语句
+	int sprintf(char* buff,const char* format,[argument]....);
+	参数列表：
+		char* buff,				需要把结果存放在哪里去
+		const char* format,		标准化格式输入
+		[argument]....			待选参数，依赖于format里面的%s、%d、%c等等
+	返回值：
+		返回写入buff中的字节数(strlen)
+	
+	左对齐：数据靠左存储	eg:sprintf(buff,"%-6d",intValue);
+	右对齐：数据靠右存储	eg:sprintf(buff,"%6d",intValue);
+	
+	
+	
+	
+	
+	
+	问题1：
+		buff设置的长度不够，intValue值被截断，并且由于少了一个'\0'字符，结束符，导致打印的时候会有垃圾值
+		解决方法：buff的长度设大一点，至少得预留一个结束符的位置
+	问题2：
+		%c %s %d记混了
+		解决方法：直接看报的错，根据报错修改%d等等
+		

@@ -1,0 +1,57 @@
+
+1.移动字符窗口的光标位置=====lseek
+	int wmove(WINDOW* win,int y,int x)
+	参数列表
+		WINDOW* win,	要移动光标位置的窗口的指针
+		int y,			要移动光标位置的窗口的光标的新的y轴值
+		int x			要移动光标位置的窗口的光标的新的x轴值
+	返回：
+		成功，返回OK
+		失败，返回ERR
+		
+2.往窗口的缓冲区中写入指定字符串		
+	int waddstr(WINDOW* win,const char* str)
+	参数列表：
+		WINDOW* win,		需要写入字符串的窗口的指针
+		const char* str		需要被写入的字符串内容
+	返回值：
+		成功，返回OK
+		失败，返回ERR
+		
+		
+3.将缓冲区中的内容刷写到窗口中，进行显示
+	int wrefresh(WINDOW* win)
+	参数列表：
+		WINDOW* win		需要显示内容的窗口的指针
+	返回值：
+		成功，返回OK
+		失败，返回ERR
+	
+4.OpenScreen中需要用到的部分函数
+	void OpenScreen()
+	{
+		initscr();//初始化窗口并申请系统组资源
+		cbreak();//关闭行缓冲，方便每次直接对方向/功能键进行操作，无需再将其从缓冲区中读出
+		noecho();/关闭回显功能------>回显：将输入显示在屏幕上
+		Keypad(stdscr,TRUE);//打开标准窗口的功能键功能
+	}
+
+5.CloseScreen中需要用到的部分函数
+	void CloseScreen()
+	{
+		delwin(win_2048);//win_2048 = newwin(4,24,4,20);
+		endwin();
+	}
+	
+6.显示屏幕的流程
+	①打开屏幕
+	②创建窗口
+	③向里面写入内容
+	④关闭窗口
+
+
+curse中规定，所有操作必须以initscr()开始，以endwin()结束
+
+KEY_A
+KEY_UP
+		

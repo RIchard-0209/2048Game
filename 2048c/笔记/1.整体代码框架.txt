@@ -1,0 +1,52 @@
+一个进程都是以main函数开始，并且以main函数结束
+
+
+main.c 						screen.c				input.c								2048.c
+程序的出口和入口		字符屏幕相关功能的代码逻辑	键盘输入的相关代码逻辑			2048游戏的主逻辑
+
+main.c
+
+
+#include "screen.h"
+......
+
+
+int main()
+{
+	OpenScreen();//初始化屏幕，并申请系统资源
+	
+	Game2048Logic();//2048游戏的主逻辑
+
+	CloseScreen();//关闭字符屏幕，并释放所申请的系统资源
+	
+	return 0;
+}
+
+
+模块化编程
+
+#ifndef __SCREEN_H__
+#define __SCREEN_H__
+
+
+
+/*
+    OpenScreen:打开字符屏幕并进行初始化,申请系统资源
+    参数列表：无参数
+    返回值：无返回值
+    作者：xxxx@qq.com
+*/
+void OpenScreen();
+
+
+/*
+    OpenScreen:关闭字符屏幕，释放系统资源
+    参数列表：无参数
+    返回值：无返回值
+    作者：xxxx@qq.com
+*/
+void CloseScreen();
+
+
+
+#endif

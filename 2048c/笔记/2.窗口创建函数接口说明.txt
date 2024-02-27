@@ -1,0 +1,53 @@
+
+curses
+
+#include <curses.h>
+
+1.创建字符窗口
+	WINDOW*	newwin(int lineNum,int columnNum,int start_y,int start_x);
+		参数列表
+			int lineNum,	该窗口的行数
+			int columnNum,	该窗口的列数
+			int start_y,	该窗口左上顶点的y轴坐标，即第几行（从0开始算）
+			int start_x		该窗口左上顶点的x轴坐标，即第几列（从0开始算）
+		返回值：
+			成功：返回一个指向创建的窗口的指针
+			失败：返回NULL
+
+
+2.移动字符窗口
+	int mvwin(WINDOW* win,int newy,int newx);
+		参数列表：
+			WINDOW* win,		需要移动屏幕位置的窗口的指针
+			int newy,			左上顶点新的y轴坐标
+			int newx			左上顶点新的x轴坐标
+		返回值：
+			成功，返回OK
+			失败，返回ERR
+			
+3.删除字符窗口
+	int delwin(WINDOW* win)
+		参数列表：
+			WINDOW* win			需要删除的窗口的指针
+		返回值：
+			成功，返回OK
+			失败，返回ERR
+			
+			
+1.先装库。需要在ubuntu系统上安装库文件，支持ncurses：
+	sudo apt-get install libncurses5-dev
+
+
+	如果报错了，删除相应的文件
+	sudo rm /var/lib/dpkg/lock-frontend
+	sudo rm /var/lib/dpkg/lock
+
+如果还是不行，就换源
+1.编辑源的文件
+	sudo gedit /etc/apt/sources.list
+2.删除里面所有东西
+3.粘贴我发在feiqQ群里的源的文件
+4.sudo apt-get update
+5.回到装库的步骤
+6.如果出现无法链接到aliyun.com，切换一下自己的手机热点
+	
